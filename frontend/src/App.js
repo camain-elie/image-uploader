@@ -3,11 +3,14 @@ import './components/uploaded';
 import './components/uploading';
 
 import './App.scss';
+import Uploading from './components/uploading';
 
 function App() {
   return (
-    <div className="App">
-      app
+    <div className="app">
+      <div className="app__content" >
+        <Uploading />
+      </div>
     </div>
   );
 }
