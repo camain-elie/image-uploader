@@ -7,12 +7,37 @@
         background: #CCCCCC;
         width: 100%;
         height: 10px;
-
+        border-radius: 4px;
+        position: relative;
+        overflow: hidden;
     }
 
     &__moving{
         background: $button-color;
-        width: 30%;
+        width: 10%;
         height: 100%;
+        border-radius: 4px;
+        position: absolute;
+        animation: loading 1s infinite alternate ease-in-out;
+        opacity: 0.8;
+
+        &.second{
+            animation-delay: 0.15s;
+            background: lighten($button-color, 8%);
+        }
+        &.third{
+            animation-delay: 0.3s;
+            background: lighten($button-color, 16%);
+        }
+    }
+}
+
+@keyframes loading {
+    0%{
+        left: 0;
+    }
+
+    100%{
+        left: 90%;
     }
 }

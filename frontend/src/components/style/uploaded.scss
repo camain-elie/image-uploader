@@ -1,0 +1,67 @@
+@import './colors.scss';
+
+.uploaded{
+    text-align: center;
+
+    &__done{
+        width: 50px;
+        height: 50px;
+        background: $checked-color;
+        border-radius: 50%;
+        margin: auto;
+        position: relative;
+    }
+
+    &__tick--one, &__tick--two{
+        height: 6px;
+        background: white;
+        border-radius: 3px;
+        position: absolute
+    }
+
+    &__tick--one{
+        position: absolute;
+        left: 10px;
+        top: 27px;
+        transform: rotate(45deg);
+        width: 15px;
+        animation: appear-one 0.1s 0.4s linear backwards;
+    }
+
+    &__tick--two{
+        width: 25px;
+        transform: rotate(-45deg);
+        position: absolute;
+        left: 15.5px;
+        top: 23px;
+        animation: appear-two 0.1s 0.5s linear backwards;
+    }
+}
+
+@keyframes appear-one {
+    from{
+        width: 0px;
+        left: 13px;
+        top: 22px;
+    }
+
+    to{
+        width: 15px;
+        left: 10px;
+        top: 27px;
+    }
+}
+
+@keyframes appear-two {
+    from{
+        width: 0px;
+        left: 19px;
+        top: 31px;
+    }
+
+    to{
+        width: 25px;
+        left: 15.5px;
+        top: 23px;
+    }
+}

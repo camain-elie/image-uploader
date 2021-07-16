@@ -1,16 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import './components/style/colors.scss';
+
 .app {
   display: flex;
   flex-direction: column;
   height: 100vh;
   background: #ececec;
-
+  font-family: 'Poppins', sans-serif;
   //text-align: center;
+
   &__content{
-    width: 30%;
-    max-width: 600px;
+    width: 25%;
+    max-width: 500px;
     margin: auto;
     box-shadow: 0px 0px 10px 6px rgba(0,0,0,0.08);
     border-radius: 10px;
     background: white;
+    padding: 40px;
+  }
+
+  h1{
+    font-size: 1.7rem;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    color: $font-color;
+  }
+
+  button{
+    color: white;
+    background: $button-color;
+    border: none;
+    font-size: 1rem;
+    border-radius: 8px;
+    padding: 8px;
+    
+    &:hover{
+      background: lighten($button-color, 6%);
+    }
+    &:active{
+      outline: none;
+      background: darken($button-color, 10%);
+    }
   }
 }
