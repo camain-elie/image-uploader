@@ -1,6 +1,6 @@
 import './style/uploaded.scss';
 
-function Uploaded () {
+function Uploaded (props) {
 
     return(
         <div className="uploaded">
@@ -11,11 +11,16 @@ function Uploaded () {
 
             <h1>Uploaded Successfully !</h1>
 
-            <img  ></img>
+            <img src={props.url} alt="element uploaded"></img>
 
             <div className="uploaded__link">
-                <input />
-                <button className="uploaded__copy">Copy Link</button>
+                <input readOnly value={props.url} />
+                <button 
+                    className="uploaded__copy"
+                    onClick={() => {navigator.clipboard.writeText(props.url)}}
+                >
+                        Copy Link
+                </button>
             </div>
         </div>
     );

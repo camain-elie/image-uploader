@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 @import './colors.scss';
 
 .uploaded{
     text-align: center;
+    font-family: 'Poppins', sans-serif;
 
     &__done{
         width: 50px;
@@ -10,6 +12,7 @@
         border-radius: 50%;
         margin: auto;
         position: relative;
+        margin-bottom: 15px;
     }
 
     &__tick--one, &__tick--two{
@@ -35,6 +38,33 @@
         left: 15.5px;
         top: 23px;
         animation: appear-two 0.1s 0.5s linear backwards;
+    }
+
+    &__link{
+        border: 1.5px solid #E0E0E0;
+        border-radius: 8px;
+        display: flex;
+        overflow: hidden;
+
+        input{
+            text-overflow: ellipsis;
+            width: 100%;
+            border: none;
+            padding: 0 10px;
+            color: $font-color;
+            font-size: 0.85rem;
+            font-family: 'Poppins', sans-serif;
+
+            &:focus{
+                outline: none;
+            }
+        }
+    }
+
+    img{
+        width: 100%;
+        border-radius: 10px;
+        margin: 20px 0;
     }
 }
 

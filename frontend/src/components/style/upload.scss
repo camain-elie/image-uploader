@@ -1,0 +1,13 @@
+@import './colors.scss';
+
+.upload{
+    text-align: center;
+
+    &__file-desc{
+        color: #828282;
+    }
+
+    &__or{
+        color: $clear-font-color;
+    }
+}
