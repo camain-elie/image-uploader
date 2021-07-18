@@ -11,13 +11,13 @@ function Uploaded (props) {
 
             <h1>Uploaded Successfully !</h1>
 
-            <img src={props.url} alt="element uploaded"></img>
+            <img src={props.imageURL} alt="element uploaded"></img>
 
             <div className="uploaded__link">
-                <input readOnly value={props.url} />
+                <input readOnly value={props.imageURL} />
                 <button 
                     className="uploaded__copy"
-                    onClick={() => {navigator.clipboard.writeText(props.url)}}
+                    onClick={() => {navigator.clipboard.writeText(props.imageURL)}}
                 >
                         Copy Link
                 </button>
