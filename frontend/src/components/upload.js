@@ -13,12 +13,16 @@ function Upload (props) {
     }
 
     const handleFileUpload = (e) => {
+        let file;
         if(e.target.type === "file"){
+            file = e.target.files[0];
             setImg(e.target.files[0]);
         }else{
+            file = e.dataTransfer.files[0];
             setImg(e.dataTransfer.files[0]);
         }
-        
+        setImg(file);
+        props.handleFileUpload(file);
     }
 
     return(
@@ -38,6 +42,8 @@ function Upload (props) {
 
             <input type="file" ref={inputFile} onChange={handleFileUpload} />
             <button onClick={onButtonClick} >Choose a file</button>
+
+            {props.message && <p className="upload__message" >{props.message}</p>}
 
             {img && <img style={{width: '100%'}} src={URL.createObjectURL(img)} alt="preview" />}
         </div>

@@ -1,21 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 @import './components/style/colors.scss';
 
+
 .app {
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   height: 100vh;
   background: #ececec;
   font-family: 'Poppins', sans-serif;
+  padding: 10px;
 
   &__content{
-    width: 25%;
     max-width: 500px;
     margin: auto;
+    
     box-shadow: 0px 0px 10px 6px rgba(0,0,0,0.08);
     border-radius: 10px;
     background: white;
     padding: 40px;
+
+    @media (min-width: 800px){
+      width: 25%;
+    }
   }
 
   h1{
@@ -42,5 +49,11 @@
       outline: none;
       background: darken($button-color, 10%);
     }
+  }
+}
+
+@media(min-height: 600px) {
+  *{
+    overflow: hidden;
   }
 }
