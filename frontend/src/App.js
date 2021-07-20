@@ -17,28 +17,32 @@ const  checkFileSize = (file, maxSizeInBytes) => {
 }
 
 const checkFileType = (file, formats) => {
-  let fileExtention = file.name.split('.');
-  fileExtention = fileExtention[fileExtention.length-1];
-  return formats.includes(fileExtention.toLowerCase());
+  let fileExtension = file.name.split('.');
+  fileExtension = fileExtension[fileExtension.length-1];
+  return formats.includes(fileExtension.toLowerCase());
 }
 
 function App() {
-
-
 
   const [file, setFile] = useState();
   const [imageURL, setImageURL] = useState();
   const [message, setMessage] = useState('');
   const [uploadingProcessState, setUploadingProcessState] = useState('waiting');
-
-  if(file && !checkFileSize(file, DEFAULT_MAX_FILE_SIZE_IN_BYTES)){
-    setFile(null);
-    setMessage('The size of the file should not exceed 5.0 Mo');
+  
+  const handleFileUpload = (file) => {
+    setMessage('');
+    setFile(file);
   }
 
-  if(file && !checkFileType(file, ACCEPTED_FILE_FORMATS)){
+  if(file && (!checkFileSize(file, DEFAULT_MAX_FILE_SIZE_IN_BYTES) || !checkFileType(file, ACCEPTED_FILE_FORMATS))){
+    let message = '';
+    if(!checkFileSize(file, DEFAULT_MAX_FILE_SIZE_IN_BYTES)){
+      message = 'The size of the file should not exceed 5.0 Mo';
+    }else{
+      message = 'Wrong file format, only .jpg (or .jpeg), .png, .gif and .svg are accepted.';
+    }
     setFile(null);
-    setMessage('Wrong file format, only .jpg (or .jpeg), .png, .gif and .svg are accepted.')
+    setMessage(message)
   }
 
   return (
@@ -49,7 +53,7 @@ function App() {
       <div className="app__content" >
 
         {uploadingProcessState === 'waiting'
-          && <Upload message={message} handleFileUpload={(file) => setFile(file)} />}
+          && <Upload message={message} handleFileUpload={(file) => handleFileUpload(file)} />}
 
         {uploadingProcessState === 'processing'
           && <Uploading />}
