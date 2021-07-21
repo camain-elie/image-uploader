@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
-import PropTypes from 'prop-types';
 
+import { sendImage } from './services/upload';
 import Upload from './components/upload';
 import Uploading from './components/uploading';
 import Uploaded from './components/uploaded';
@@ -32,6 +32,7 @@ function App() {
   const handleFileUpload = (file) => {
     setMessage('');
     setFile(file);
+    sendImage();
   }
 
   if(file && (!checkFileSize(file, DEFAULT_MAX_FILE_SIZE_IN_BYTES) || !checkFileType(file, ACCEPTED_FILE_FORMATS))){
