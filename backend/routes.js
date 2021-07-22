@@ -2,8 +2,9 @@ const express = require('express');
 const router = express.Router();
 
 const controller = require('./controller');
+const multer = require('./multer-config');
 
-router.post('/', controller.postImage);
+router.post('/', multer, controller.postImage);
 
 router.get('/', controller.getImage);
 
