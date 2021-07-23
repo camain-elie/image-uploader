@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 
 import { sendImage } from './services/upload';
 import Upload from './components/upload';
@@ -7,10 +7,9 @@ import Uploaded from './components/uploaded';
 
 import './App.scss';
 
-const BANANA_BREAD = "https://img.over-blog-kiwi.com/0/93/14/90/20190312/ob_d9a59a_cake-banane-banana-bread.jpg";
+//const BANANA_BREAD = "https://img.over-blog-kiwi.com/0/93/14/90/20190312/ob_d9a59a_cake-banane-banana-bread.jpg";
 const DEFAULT_MAX_FILE_SIZE_IN_BYTES = 5000000;
 const ACCEPTED_FILE_FORMATS = ['jpg', 'jpeg', 'png', 'gif', 'svg'];
-const API_URL = "api/upload/???";
 
 const  checkFileSize = (file, maxSizeInBytes) => {
   return(file.size <= maxSizeInBytes);
@@ -31,8 +30,15 @@ function App() {
   
   const handleFileUpload = (file) => {
     setMessage('');
+    setUploadingProcessState('processing');
     setFile(file);
-    sendImage();
+    sendImage(file)
+      .then(res => {
+        console.log(res.data);
+        setImageURL(res.data.url);
+        setUploadingProcessState('completed');
+      })
+      .catch(error => console.log(error));
   }
 
   if(file && (!checkFileSize(file, DEFAULT_MAX_FILE_SIZE_IN_BYTES) || !checkFileType(file, ACCEPTED_FILE_FORMATS))){
