@@ -1,6 +1,6 @@
 exports.postImage = (req, res, next) => {
 
-    const imageURL = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`;
+    const imageURL = `${req.protocol}://${req.get('host')}/image/${req.file.filename}`;
     console.log(imageURL);
     res.status(201).json({ message: 'Image posted.', url: imageURL });
 };
