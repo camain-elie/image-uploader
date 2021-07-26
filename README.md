@@ -1,6 +1,4 @@
-<!-- Please update value in the {}  -->
-
-<h1 align="center">{Your project name}</h1>
+<h1 align="center">Image uploader</h1>
 
 <div align="center">
    Solution for a challenge from  <a href="http://devchallenges.io" target="_blank">Devchallenges.io</a>.
@@ -12,7 +10,7 @@
       Demo
     </a>
     <span> | </span>
-    <a href="https://{your-url-to-the-solution}">
+    <a href="https://github.com/camain-elie/image-uploader">
       Solution
     </a>
     <span> | </span>
@@ -37,22 +35,24 @@
 
 ## Overview
 
-![screenshot](https://user-images.githubusercontent.com/16707738/92399059-5716eb00-f132-11ea-8b14-bcacdc8ec97b.png)
+![screenshot](./project-overview.png)
 
 Introduce your projects by taking a screenshot or a gif. Try to tell visitors a story about your project by answering:
 
-- Where can I see your demo?
-- What was your experience?
-- What have you learned/improved?
-- Your wisdom? :)
+My solution to devchallenge.io's Image Uploader challenge.
+
+I just started devchallenge.io's full-stack path to pick up my backend skills. Nothing fancy here, I just followed the project guidelines, except for a slight change on the loader when a file is uploading.
+
+This project helped me a lot to improve with files handling in javascript, drag and drop containers and node.js overall, multer specifically. I struggled a lot at the beginning but in the end I finally came through this small project.
 
 ### Built With
 
 <!-- This section should list any major frameworks that you built your project using. Here are a few examples.-->
 
 - [React](https://reactjs.org/)
-- [Vue.js](https://vuejs.org/)
+- [Create-React-App](https://create-react-app.dev/)
 - [Tailwind](https://tailwindcss.com/)
+- [Node.js](https://nodejs.org/)
 
 ## Features
 
