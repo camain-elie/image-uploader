@@ -38,7 +38,12 @@ function App() {
         setImageURL(res.data.url);
         setUploadingProcessState('completed');
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+        console.log(error);
+        setMessage(error.message);
+        setUploadingProcessState('waiting');
+        setFile(null);
+      });
   }
 
   if(file && (!checkFileSize(file, DEFAULT_MAX_FILE_SIZE_IN_BYTES) || !checkFileType(file, ACCEPTED_FILE_FORMATS))){

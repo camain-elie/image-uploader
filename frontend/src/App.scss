@@ -20,7 +20,7 @@
     background: white;
     padding: 40px;
 
-    @media (min-width: 800px){
+    @media (min-width: 900px){
       width: 25%;
     }
   }
@@ -41,6 +41,7 @@
     padding: 8px;
     white-space: nowrap;
     margin: 1px;
+    overflow: visible;
     
     &:hover{
       background: lighten($button-color, 6%);
